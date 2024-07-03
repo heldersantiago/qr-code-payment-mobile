@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:qrcode_payment/constants/api.dart';
@@ -27,13 +28,23 @@ class PaymentController extends GetxService {
         },
       );
       if (response.statusCode == 201) {
-        Get.snackbar("Success", "QR Code generated successfully");
+        Get.snackbar("QR Code", "QR Code gerado com sucesso",
+            colorText: Colors.white,
+            snackPosition: SnackPosition.TOP,
+            backgroundColor: Colors.green,
+            duration: const Duration(seconds: 2),
+            margin: const EdgeInsets.only(top: 5));
         print(response.body);
         final productJson = jsonDecode(response.body);
         product.value = Product.fromJson(productJson);
         print(product.value);
       } else {
-        Get.snackbar("Error", "Failed to generate QR Code");
+        Get.snackbar("QR Code", "Erro ao gerar Qr Code, tente novamente",
+            colorText: Colors.white,
+            snackPosition: SnackPosition.TOP,
+            backgroundColor: Colors.red,
+            duration: const Duration(seconds: 2),
+            margin: const EdgeInsets.only(top: 5));
       }
     } catch (e) {
       print("Error: $e");
@@ -59,9 +70,14 @@ class PaymentController extends GetxService {
       print(response.body);
 
       if (response.statusCode == 200) {
-        Get.snackbar("Success", "Payment processed successfully");
+        Get.snackbar("Pagamento", "Pagamento feito com sucesso!",
+            colorText: Colors.white,
+            snackPosition: SnackPosition.TOP,
+            backgroundColor: Colors.green,
+            duration: const Duration(seconds: 2),
+            margin: const EdgeInsets.only(top: 5));
       } else {
-        Get.snackbar("Error", "Failed to process payment");
+        Get.snackbar("Error", "Erro ao processar pagamento");
       }
     } catch (e) {
       Get.snackbar("Attention", e.toString());

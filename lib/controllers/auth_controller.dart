@@ -89,6 +89,14 @@ class AuthController extends GetxController {
           backgroundColor: Colors.green,
           duration: const Duration(seconds: 2),
           margin: const EdgeInsets.only(top: 5));
+    } else {
+      isLoading.value = false;
+      Get.snackbar("Erro", "Usuário com este Email Já existe",
+          colorText: Colors.white,
+          snackPosition: SnackPosition.TOP,
+          backgroundColor: Colors.red,
+          duration: const Duration(seconds: 2),
+          margin: const EdgeInsets.only(top: 5));
     }
   }
 

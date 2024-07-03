@@ -69,8 +69,13 @@ class _GenerateQrCodeWidgetState extends State<GenerateQrCodeWidget> {
                       _textController.text = "";
                     } else {
                       _textController.text = "";
-                      Get.snackbar("Erro", "Valor inválido",
-                          backgroundColor: Colors.red);
+                      Get.snackbar(
+                          "QR Code", "Erro ao gerar Qr Code, tente novamente",
+                          colorText: Colors.white,
+                          snackPosition: SnackPosition.TOP,
+                          backgroundColor: Colors.red,
+                          duration: const Duration(seconds: 2),
+                          margin: const EdgeInsets.only(top: 5));
                     }
                     setState(() {
                       _qrData = _textController.text;

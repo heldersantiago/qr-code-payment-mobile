@@ -74,9 +74,6 @@ class _RegisterViewState extends State<RegisterScreen> {
   @override
   void initState() {
     super.initState();
-    setState(() {
-      authController.isLoading.value = false;
-    });
   }
 
   @override
@@ -91,7 +88,7 @@ class _RegisterViewState extends State<RegisterScreen> {
               Container(
                 height: 300,
                 padding: const EdgeInsets.all(10),
-                child: Image.asset("images/signup.png"),
+                child: Image.asset("assets/images/signin.png"),
               ),
               const SizedBox(height: 15),
               Padding(

@@ -63,7 +63,10 @@ class _LoginScreenState extends State<LoginScreen> {
             children: [
               const SizedBox(height: 10),
               Container(
-                height: MediaQuery.of(context).size.height / 2.4,
+                height: MediaQuery
+                    .of(context)
+                    .size
+                    .height / 2.4,
                 child: Padding(
                   padding: const EdgeInsets.all(10),
                   child: Image.asset("assets/images/signin.png"),
@@ -72,18 +75,18 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(height: 15),
               Padding(
                   padding:
-                      const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+                  const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
                   child: AuthField(
                     controller: _emailOrPhoneController,
                     icon: Icons.email,
-                    hintText: "Digite o email ou nº telefone",
+                    hintText: "Digite o email",
                     keyboardType: TextInputType.text,
-                    labelText: "Email ou número do  telefone",
+                    labelText: "Email",
                     validator: _emailOrPasswordValidator,
                   )),
               Padding(
                   padding:
-                      const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+                  const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
                   child: AuthField(
                     controller: _passwordController,
                     icon: Icons.lock,
@@ -114,18 +117,19 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
                               vertical: 15, horizontal: 30),
-                          child: Obx(() => authController.isLoading.value
+                          child: Obx(() =>
+                          authController.isLoading.value
                               ? const CircularProgressIndicator(
-                                  color: Colors.white,
-                                )
+                            color: Colors.white,
+                          )
                               : const Text(
-                                  "Entrar",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 25,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                )),
+                            "Entrar",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          )),
                         ),
                       ),
                     ),
